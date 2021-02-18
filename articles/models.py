@@ -9,7 +9,7 @@ class Article(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     auth = models.ForeignKey(
         get_user_model(),
-        on_delete=CASCADE,
+        on_delete=model.CASCADE,
     )
 
     def __str__(self):
