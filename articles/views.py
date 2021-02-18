@@ -28,4 +28,8 @@ class ArticleDeleteView(DeleteView):
 class ArticleCreateView(CreateView):
     model=Article
     template_name='article_new.html'
-    fields=('title','body','author',)
+    fields=('title','body',)
+
+    def from_vaild(self,form):
+        form.instance.author=self.request.user
+        return super().from_vaild(form)
