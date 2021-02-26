@@ -43,6 +43,6 @@ class ArticleCreateView(LoginRequiredMixin,CreateView):
     fields=('title','body',)
     login_url = 'login'
     
-    def from_vaild(self,form):
+    def form_valid(self,form):
         form.instance.author=self.request.user
-        return super().from_vaild(form)
+        return super().form_valid(form)
